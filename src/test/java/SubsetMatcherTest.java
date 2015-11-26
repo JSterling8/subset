@@ -9,12 +9,10 @@ import java.util.List;
  */
 public class SubsetMatcherTest {
     private String testText;
-    private SubsetMatcher subsetMatcher;
 
     @Before
     public void setup(){
         testText = "How much wood would a Woodchuck chuck, if a Woodchuck could chuck wood?";
-        subsetMatcher = new SubsetMatcher();
     }
 
     @Test
@@ -22,7 +20,7 @@ public class SubsetMatcherTest {
         String testSubtext = "How";
 
         Integer[] expecteds = {1};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -32,7 +30,7 @@ public class SubsetMatcherTest {
         String testSubtext = "wood";
 
         Integer[] expecteds = {10, 23, 45, 67};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -42,7 +40,7 @@ public class SubsetMatcherTest {
         String testSubtext = "Wood";
 
         Integer[] expecteds = {10, 23, 45, 67};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -52,7 +50,7 @@ public class SubsetMatcherTest {
         String testSubtext = "oo";
 
         Integer[] expecteds = {11, 24, 46, 68};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -62,7 +60,7 @@ public class SubsetMatcherTest {
         String testSubtext = "Oo";
 
         Integer[] expecteds = {11, 24, 46, 68};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -72,7 +70,7 @@ public class SubsetMatcherTest {
         String testSubtext = "wooden";
 
         Integer[] expecteds = {};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -82,7 +80,7 @@ public class SubsetMatcherTest {
         String testSubtext = "x";
 
         Integer[] expecteds = {};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -92,7 +90,7 @@ public class SubsetMatcherTest {
         String testSubtext = "?";
 
         Integer[] expecteds = {71};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -102,7 +100,7 @@ public class SubsetMatcherTest {
         String testSubtext = " ";
 
         Integer[] expecteds = {4, 9, 14, 20, 22, 32, 39, 42, 44, 54, 60, 66};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -112,7 +110,7 @@ public class SubsetMatcherTest {
         String testSubtext = testText;
 
         Integer[] expecteds = {1};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
@@ -122,7 +120,7 @@ public class SubsetMatcherTest {
         String testSubtext = testText.substring(0, 40);
 
         Integer[] expecteds = {1};
-        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
