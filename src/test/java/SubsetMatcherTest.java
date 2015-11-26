@@ -5,7 +5,9 @@ import org.junit.Test;
 import java.util.List;
 
 /**
- * Created by anon on 26/11/2015.
+ * Tests the SubsetMatcher class.
+ *
+ * @author Jonathan Sterling
  */
 public class SubsetMatcherTest {
     private String testText;
@@ -121,6 +123,52 @@ public class SubsetMatcherTest {
 
         Integer[] expecteds = {1};
         List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
+    }
+
+    @Test
+    public void testSubtextTooLarge() {
+        String testSubtext = "How much wood would a Woodchuck chuck, if a Woodchuck could chuck wood?a";
+
+        Integer[] expecteds = {};
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
+    }
+
+    @Test
+    public void testBlankSubText() {
+        String testSubtext = "";
+
+        Integer[] expecteds = {};
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
+    }
+
+    @Test
+    public void testNullText() {
+        String testSubtext = "oo";
+
+        Integer[] expecteds = {};
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(null, testSubtext);
+
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
+    }
+
+    @Test
+    public void testNullSubText() {
+        Integer[] expecteds = {};
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(testText, null);
+
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
+    }
+
+    @Test
+    public void testNullSubTextAndText() {
+        Integer[] expecteds = {};
+        List<Integer> actuals = SubsetMatcher.getSubsetMatchStartIndexes(null, null);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
     }

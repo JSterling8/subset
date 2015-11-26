@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by anon on 26/11/2015.
+ * A utility class for finding subtexts of texts.
+ *
+ * @author Jonathan Sterling
  */
 public class SubsetMatcher {
     private SubsetMatcher(){
@@ -22,7 +24,7 @@ public class SubsetMatcher {
     public static List<Integer> getSubsetMatchStartIndexes(String text, String subtext) {
         List<Integer> indexes = new ArrayList<Integer>();
 
-        if(subtext.length() > text.length()){
+        if(!areValidInputs(text, subtext)){
             return indexes;
         }
 
@@ -42,6 +44,17 @@ public class SubsetMatcher {
         }
 
         return indexes;
+    }
+
+    private static boolean areValidInputs(String text, String subtext) {
+        if(text == null ||
+                subtext == null ||
+                subtext.length() > text.length() ||
+                subtext == ""){
+            return false;
+        }
+
+        return true;
     }
 
     /**
