@@ -27,6 +27,6 @@ public class SubsetMatcher {
             }
         }
 
-        return indexes; //FIXME Return actual array
+        return indexes;
     }
 }
