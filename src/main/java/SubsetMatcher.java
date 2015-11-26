@@ -13,13 +13,13 @@ public class SubsetMatcher {
 
     /**
      * If a given subtext is contained, in order, within a given text, this method returns all
-     * indexes of the original text where the subtext match(es) start.
+     * positions of the original text where the subtext match(es) start.
      *
      * @param text      The text in which you are looking for subtext matches
      * @param subtext   The subtext which you are looking for in the text
-     * @return          A List of Integers of all starting indexes where the entire subtext is contained,
+     * @return          A List of Integers of all starting positions where the entire subtext is contained,
      *                  in order, in the text provided.  Case is ignored for all english characters
-     *                  (A-Z and a-z)  <b>(returned indexes start at 1, not 0</b>)
+     *                  (A-Z and a-z)  <b>(returned positions start at 1, not 0</b>)
      */
     public static List<Integer> getSubsetMatchStartPositions(String text, String subtext) {
         List<Integer> positions = new ArrayList<Integer>();
