@@ -2,6 +2,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * Created by anon on 26/11/2015.
  */
@@ -19,99 +21,99 @@ public class SubsetMatcherTest {
     public void testOneMatch1() {
         String testSubtext = "How";
 
-        int[] expecteds = {1};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {1};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testMultiMatch1() {
         String testSubtext = "wood";
 
-        int[] expecteds = {10, 23, 45, 67};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {10, 23, 45, 67};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testMultiMatchCaseInsensitive1() {
         String testSubtext = "Wood";
 
-        int[] expecteds = {10, 23, 45, 67};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {10, 23, 45, 67};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testMultiMatch2() {
         String testSubtext = "oo";
 
-        int[] expecteds = {11, 24, 46, 68};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {11, 24, 46, 68};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testMultiMatchCaseInsensitive2() {
         String testSubtext = "Oo";
 
-        int[] expecteds = {11, 24, 46, 68};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {11, 24, 46, 68};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testNoMatch1() {
         String testSubtext = "wooden";
 
-        int[] expecteds = {};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testNoMatch2() {
         String testSubtext = "x";
 
-        int[] expecteds = {};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testSpecialCharacterMatch() {
         String testSubtext = "?";
 
-        int[] expecteds = {71};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {71};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testWhitespaceMatch() {
         String testSubtext = " ";
 
-        int[] expecteds = {4, 9, 14, 20, 22, 32, 39, 42, 44, 54, 60, 66};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {4, 9, 14, 20, 22, 32, 39, 42, 44, 54, 60, 66};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 
     @Test
     public void testWholeMatch() {
         String testSubtext = testText;
 
-        int[] expecteds = {0};
-        int[] actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+        Integer[] expecteds = {0};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
-        Assert.assertArrayEquals(expecteds, actuals);
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
     }
 }
