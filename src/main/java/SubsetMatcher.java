@@ -12,8 +12,8 @@ public class SubsetMatcher {
     }
 
     /**
-     * If a given subtext is contained, in order, within a given text, this method returns all
-     * positions of the original text where the subtext match(es) start.
+     * Matches the subtext against the text, outputting the character positions of the beginning of each
+     * match for the subtext within the text.
      *
      * @param text      The text in which you are looking for subtext matches
      * @param subtext   The subtext which you are looking for in the text
@@ -29,7 +29,10 @@ public class SubsetMatcher {
         }
 
         for(int posInText = 0; posInText < text.length(); posInText++){
-            for(int posInSubText = 0; posInSubText < subtext.length() && (posInText + posInSubText) < text.length(); posInSubText++){
+            for(int posInSubText = 0;
+                posInSubText < subtext.length() && (posInText + posInSubText) < text.length();
+                posInSubText++){
+
                 char textChar = toLowerCase(text.charAt(posInText + posInSubText));
                 char subTextChar = toLowerCase(subtext.charAt(posInSubText));
 
