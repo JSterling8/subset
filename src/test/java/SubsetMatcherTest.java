@@ -111,7 +111,17 @@ public class SubsetMatcherTest {
     public void testWholeMatch() {
         String testSubtext = testText;
 
-        Integer[] expecteds = {0};
+        Integer[] expecteds = {1};
+        List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
+
+        Assert.assertArrayEquals(expecteds, actuals.toArray());
+    }
+
+    @Test
+    public void testLargeMatch() {
+        String testSubtext = testText.substring(0, 40);
+
+        Integer[] expecteds = {1};
         List<Integer> actuals = subsetMatcher.getSubsetMatchStartIndexes(testText, testSubtext);
 
         Assert.assertArrayEquals(expecteds, actuals.toArray());
