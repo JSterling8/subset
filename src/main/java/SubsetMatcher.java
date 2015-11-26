@@ -21,11 +21,11 @@ public class SubsetMatcher {
      *                  in order, in the text provided.  Case is ignored for all english characters
      *                  (A-Z and a-z)  <b>(returned indexes start at 1, not 0</b>)
      */
-    public static List<Integer> getSubsetMatchStartIndexes(String text, String subtext) {
-        List<Integer> indexes = new ArrayList<Integer>();
+    public static List<Integer> getSubsetMatchStartPositions(String text, String subtext) {
+        List<Integer> positions = new ArrayList<Integer>();
 
         if(!areValidInputs(text, subtext)){
-            return indexes;
+            return positions;
         }
 
         for(int posInText = 0; posInText < text.length(); posInText++){
@@ -35,7 +35,7 @@ public class SubsetMatcher {
 
                 if(textChar == subTextChar) {
                     if(posInSubText == subtext.length() -1) {
-                        indexes.add(posInText + 1);
+                        positions.add(posInText + 1);
                     }
                 } else {
                     break;
@@ -43,7 +43,7 @@ public class SubsetMatcher {
             }
         }
 
-        return indexes;
+        return positions;
     }
 
     private static boolean areValidInputs(String text, String subtext) {
