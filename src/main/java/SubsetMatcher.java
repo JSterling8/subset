@@ -28,7 +28,7 @@ public class SubsetMatcher {
             return positions;
         }
 
-        for(int posInText = 0; posInText < text.length(); posInText++){
+        for(int posInText = 0; posInText < text.length() && posInText + subtext.length() <= text.length(); posInText++){
             for(int posInSubText = 0;
                 posInSubText < subtext.length() && (posInText + posInSubText) < text.length();
                 posInSubText++){
