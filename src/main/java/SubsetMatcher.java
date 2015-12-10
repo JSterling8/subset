@@ -53,7 +53,7 @@ public class SubsetMatcher {
         if(text == null ||
                 subtext == null ||
                 subtext.length() > text.length() ||
-                subtext == ""){
+                subtext.equals("")){
             return false;
         }
 
